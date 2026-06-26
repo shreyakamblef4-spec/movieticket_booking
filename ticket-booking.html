@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Ticket Booking</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.booking-container{
+    width:900px;
+    background:#1e293b;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
+
+.movie-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.movie-header h1{
+    color:#facc15;
+    font-size:35px;
+}
+
+.movie-header p{
+    color:#cbd5e1;
+    margin-top:5px;
+}
+
+.booking-info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.booking-info select,
+.booking-info input{
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#334155;
+    color:white;
+}
+
+.screen{
+    background:white;
+    height:12px;
+    width:80%;
+    margin:20px auto;
+    border-radius:10px;
+    box-shadow:0 0 25px white;
+}
+
+.screen-text{
+    text-align:center;
+    color:#94a3b8;
+    margin-bottom:20px;
+}
+
+.seat-container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:40px;
+}
+
+.seat-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:10px;
+}
+
+.row-label{
+    width:30px;
+    text-align:center;
+    color:white;
+    font-size:18px;
+    margin:0 10px;
+}
+
+.aisle{
+    width:60px;
+}
+
+.row{
+    display:flex;
+    gap:10px;
+}
+.seat{
+    width:35px;
+    height:35px;
+    background:#475569;
+    border-radius:8px 8px 4px 4px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.seat:hover{
+    transform:scale(1.1);
+}
+
+.seat.selected{
+    background:#22c55e;
+}
+
+.seat.occupied{
+    background:#ef4444;
+    cursor:not-allowed;
+}
+
+.legend{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:25px 0;
+}
+
+.legend div{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.box{
+    width:20px;
+    height:20px;
+    border-radius:5px;
+}
+
+.available{background:#475569;}
+.selected-box{background:#22c55e;}
+.occupied-box{background:#ef4444;}
+
+.summary{
+    text-align:center;
+    margin-top:20px;
+}
+
+.summary h3{
+    margin:10px 0;
+}
+
+.btn{
+    display:block;
+    width:250px;
+    margin:20px auto;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#facc15;
+    color:black;
+    font-weight:bold;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#eab308;
+}
+
+.success{
+    text-align:center;
+    color:#22c55e;
+    font-size:20px;
+    margin-top:15px;
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="booking-container">
+
+    <div class="movie-header">
+        <h1>🎬 Movie Ticket Booking</h1>
+        <p>Book your favorite movie seats online</p>
+    </div>
+
+    <div class="booking-info">
+        <input type="date">
+
+        <select>
+            <option>10:00 AM</option>
+            <option>01:00 PM</option>
+            <option>04:00 PM</option>
+            <option>07:00 PM</option>
+            <option>10:00 PM</option>
+        </select>
+
+        <select>
+            <option>PVR Cinemas</option>
+            <option>INOX</option>
+            <option>Cinepolis</option>
+        </select>
+    </div>
+
+    <div class="screen"></div>
+   <p class="screen-text">SCREEN THIS WAY</p>
+
+    <div class="seat-container" id="seatContainer"></div>
+
+    <div class="legend">
+        <div><span class="box available"></span> Available</div>
+        <div><span class="box selected-box"></span> Selected</div>
+        <div><span class="box occupied-box"></span> Occupied</div>
+    </div>
+
+    <div class="summary">
+        <h3>Selected Seats: <span id="count">0</span></h3>
+        <h3>Total Price: ₹<span id="total">0</span></h3>
+    </div>
+
+    <button class="btn" onclick="confirmBooking()">
+        Confirm Booking
+    </button>
+
+    <div class="success" id="successMsg">
+        ✅ Booking Confirmed Successfully!
+    </div>
+
+</div>
+
+<script>
+const seatContainer = document.getElementById("seatContainer");
+const count = document.getElementById("count");
+const total = document.getElementById("total");
+
+const ticketPrice = 200;
+
+const rows = ["A","B","C","D","E","F","G","H","I","J","K"];
+
+rows.forEach(letter => {
+
+    const row = document.createElement("div");
+    row.classList.add("seat-row");
+
+    const leftLabel = document.createElement("div");
+    leftLabel.classList.add("row-label");
+    leftLabel.innerText = letter;
+    row.appendChild(leftLabel);
+
+    // Left Block
+    for(let i=0;i<4;i++){
+        row.appendChild(createSeat());
+    }
+
+    const gap1 = document.createElement("div");
+    gap1.classList.add("aisle");
+    row.appendChild(gap1);
+
+    // Center Block
+    for(let i=0;i<12;i++){
+        row.appendChild(createSeat());
+    }
+
+    const gap2 = document.createElement("div");
+    gap2.classList.add("aisle");
+    row.appendChild(gap2);
+
+    // Right Block
+    for(let i=0;i<4;i++){
+        row.appendChild(createSeat());
+    }
+
+    const rightLabel = document.createElement("div");
+    rightLabel.classList.add("row-label");
+    rightLabel.innerText = letter;
+    row.appendChild(rightLabel);
+
+    seatContainer.appendChild(row);
+});
+
+function createSeat(){
+    const seat = document.createElement("div");
+    seat.classList.add("seat");
+
+    if(Math.random() < 0.15){
+        seat.classList.add("occupied");
+    }
+
+    seat.addEventListener("click", () => {
+        if(!seat.classList.contains("occupied")){
+            seat.classList.toggle("selected");
+            updateTotal();
+        }
+    });
+
+    return seat;
+}
+
+function updateTotal(){
+    const selectedSeats =
+    document.querySelectorAll(".seat.selected");
+
+    count.innerText = selectedSeats.length;
+    total.innerText = selectedSeats.length * ticketPrice;
+}
+
+function confirmBooking(){
+
+    const selectedSeats =
+    document.querySelectorAll(".seat.selected");
+
+    if(selectedSeats.length === 0){
+        alert("Please select at least one seat.");
+        return;
+    }
+
+    document.getElementById("successMsg").style.display = "block";
+
+    selectedSeats.forEach(seat=>{
+        seat.classList.remove("selected");
+        seat.classList.add("occupied");
+    });
+
+    count.innerText = 0;
+    total.innerText = 0;
+}
+</script>
+
+
+
+
+
+</body>
+</html>

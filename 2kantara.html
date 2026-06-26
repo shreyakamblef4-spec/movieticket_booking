@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kantara Movie Details</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#fff;
+}
+
+.hero{
+height:600px;
+background:url("images/2.Kantara/poster.png") center center/cover no-repeat;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.35);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:1200px;
+margin:auto;
+height:100%;
+display:flex;
+align-items:center;
+gap:40px;
+padding:40px;
+}
+
+.poster{
+width:300px;
+overflow:hidden;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+.poster img{
+width:100%;
+display:block;
+}
+
+.movie-details{
+color:white;
+}
+
+.movie-details h1{
+font-size:60px;
+font-weight:700;
+}
+
+.rating-box{
+background:#222;
+padding:15px 20px;
+border-radius:10px;
+width:320px;
+margin:20px 0;
+}
+
+.tags span{
+background:white;
+color:black;
+padding:8px 15px;
+border-radius:8px;
+display:inline-block;
+margin-right:10px;
+margin-bottom:10px;
+}
+
+.book-btn{
+background:#f84464;
+border:none;
+padding:15px 40px;
+color:white;
+border-radius:10px;
+font-size:18px;
+margin-top:20px;
+}
+
+.about,
+.cast,
+.crew,
+.reviews{
+padding:60px 100px;
+}
+
+.cast-members{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.actor{
+text-align:center;
+}
+
+.actor img{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.actor h5{
+margin-top:10px;
+}
+
+.review-card{
+background:#f5f5f5;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+}
+
+@media(max-width:768px){
+
+.hero{
+height:auto;
+}
+
+.hero-content{
+flex-direction:column;
+text-align:center;
+padding-top:100px;
+padding-bottom:50px;
+}
+
+.poster{
+width:220px;
+}
+
+.movie-details h1{
+font-size:40px;
+}
+
+.about,
+.cast,
+.crew,
+.reviews{
+padding:30px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="poster">
+<img src="images/2.Kantara/2Movie.png" alt="Kantara Poster">
+</div>
+
+<div class="movie-details">
+
+<h1>KANTARA</h1>
+
+<div class="rating-box">
+⭐ 9.3/10 (564K+ Votes)
+</div>
+
+<div class="tags">
+<span>Adventure</span>
+<span>Drama</span>
+<span>Thriller</span>
+</div>
+
+<p>2h 48m • Kannada • UA16+</p>
+
+<p>Release Date: 2 October 2025</p>
+
+<p>Available in Kannada, Hindi, Telugu, Tamil & English</p>
+
+<a href="ticket-booking.html">
+<button class="book-btn">Book Tickets</button>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="about">
+
+<h2>About The Movie</h2>
+<hr>
+
+<p>
+Kantara: A Legend Chapter 1 explores the origins of a legendary warrior
+and the deep connection between humans, nature, and divine forces.
+Set amidst dense forests and ancient traditions, the story unfolds through
+powerful action sequences, emotional conflicts, and rich cultural folklore.
+</p>
+
+</section>
+
+<section class="cast">
+
+<h2>Cast</h2>
+<hr>
+
+<div class="cast-members">
+
+<div class="actor">
+<img src="images/2.Kantara/Rishab Shetty.png">
+<h5>Rishab Shetty</h5>
+<p>Lead Role</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/Rukmini Vasanth.png">
+<h5>Rukmini Vasanth</h5>
+<p>Female Lead</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/Gulshan Devaiah.png">
+<h5>Gulshan Devaiah</h5>
+<p>Supporting Role</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/Jayaram.png">
+<h5>Jayaram</h5>
+<p>Supporting Role</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="crew">
+
+<h2>Crew</h2>
+<hr>
+
+<div class="cast-members">
+
+<div class="actor">
+<img src="images/2.Kantara/Rishab Shetty crew.png">
+<h5>Rishab Shetty</h5>
+<p>Director & Writer</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/Pragathi Rishab Shetty.png">
+<h5>Pragathi Rishab Shetty</h5>
+<p>Costume Designer</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/Vijay Kiragandur.png">
+<h5>Vijay Kiragandur</h5>  
+<p>Producer</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/Arvind Kashyap.png">
+<h5>Arvind Kashyap</h5>
+<p>Cinematographer</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/B. Ajaneesh Loknath.png">
+<h5>B. Ajaneesh Loknath</h5>
+<p>Musician</p>
+</div>
+
+<div class="actor">
+<img src="images/2.Kantara/Arjun Raj.png">
+<h5>Arjun Raj</h5>
+<p>Action Director</p>
+</div>
+
+
+</div>
+
+</section>
+
+<section class="reviews">
+
+<h2>Top Reviews</h2>
+<hr>
+
+<div class="review-card">
+<h4>⭐⭐⭐⭐⭐ Blockbuster Experience</h4>
+<p>
+Outstanding visuals, powerful storytelling and brilliant performances.
+A must-watch on the big screen.
+</p>
+</div>
+
+<div class="review-card">
+<h4>⭐⭐⭐⭐⭐ Epic Cinematic Journey</h4>
+<p>
+The folklore, action sequences and emotional moments make this film unforgettable.
+</p>
+</div>
+
+<div class="review-card">
+<h4>⭐⭐⭐⭐⭐ Amazing Background Score</h4>
+<p>
+Excellent music, breathtaking cinematography and superb direction.
+</p>
+</div>
+
+</section>
+
+</body>
+</html>
+
