@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* Movies Section */
+
+.movies{
+padding:100px 0;
+background:#111;
+}
+
+.section-title{
+text-align:center;
+font-size:48px;
+margin-bottom:60px;
+font-weight:bold;
+color:#fff;
+}
+
+
+.movie-card{
+background:#1a1a1a;
+border-radius:20px;
+overflow:hidden;
+transition:.5s;
+height:100%;
+width:25%;
+border:1px solid rgba(255, 255, 255, 0.864);
+}
+
+.movie-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px #ff3c78;
+}
+
+.movie-card img{
+width:100%;
+height:470px;
+object-fit:fill;
+transition:.5s;
+}
+
+.movie-card:hover img{
+transform:scale(1.08);
+}
+
+.movie-info{
+padding:20px;
+text-align:center;
+}
+
+.movie-title{
+color:#ffffff;
+font-size:24px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.movie-info p{
+color:#ccc;
+margin-bottom:8px;
+}
+
+.badge-show{
+background:#ff3c78;
+color:#fff;
+padding:8px 15px;
+border-radius:30px;
+font-size:14px;
+display:inline-block;
+}
+
+.movie-btn{
+width:100%;
+border:none;
+padding:12px;
+border-radius:50px;
+background:#ff3c78;
+color:white;
+font-weight:bold;
+transition:.4s;
+}
+
+.movie-btn:hover{
+background:#c70039;
+transform:scale(1.05);
+}
+
+.container{
+    width:95%;
+    margin:auto;
+}
+
+
+.row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.col-lg-4{
+    width:350%;
+}
+
+@media(max-width:992px){
+    .col-lg-4{
+        width:45%;
+    }
+}
+
+@media(max-width:768px){
+    .col-lg-4{
+        width:100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+   <!-- Movies -->
+<section class="movies">
+<div class="container">
+
+<b><h2 class="section-title">Now Showing</h2></b>
+
+<div class="row g-4">
+
+<div class="col-lg-4 col-md-6">
+<div class="movie-card">
+<a href="1dude.html"><img src="images/1.Dude/1Movie.jpg" alt=""></a>
+<div class="movie-info">
+<h3 class="movie-title">Dude</h3>
+<p>Action • Time-Slip Fantasy (K-dramas)</p>
+<p>⭐⭐⭐⭐⭐ 4.8/5</p>
+<span class="badge-show">2D | 3D</span>
+<br><br>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="movie-card">
+<a href="2kantara.html"><img src="images/2.Kantara/2Movie.png" alt=""></a>
+<div class="movie-info">
+<h3 class="movie-title">Kantara</h3>
+<p>Action • disaster-thriller aesthetic</p>
+<p>⭐⭐⭐⭐⭐ 4.9/5</p>
+<span class="badge-show">IMAX</span>
+<br><br>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="movie-card">
+<a href="3The nun 2.html"><img src="images/3.The Nun II/3Movie.png" alt=""></a>
+<div class="movie-info">
+<h3 class="movie-title">The Nun II</h3>
+<p>Action • horror</p>
+<p>⭐⭐⭐⭐ 4.6/5</p>
+<span class="badge-show">2D</span>
+<br><br>
+</div>
+</div>
+</div>
+
+
+<div class="col-lg-4 col-md-6">
+<div class="movie-card">
+<a href="4miss-peregrine.html"><img src="images/4.Miss Peregrines Home/movie4.png" alt=""></a>
+<div class="movie-info">
+<h3 class="movie-title">Miss Peregrines</h3>
+<p>Action • Time-Slip Fantasy (K-dramas)</p>
+<p>⭐⭐⭐⭐⭐ 4.7/5</p>
+<span class="badge-show">4DX</span>
+<br><br>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="movie-card">
+<a href="5Annabelle.html"><img src="images/5.Annabelle/movie5.png" alt=""></a>
+<div class="movie-info">
+<h3 class="movie-title">Annabelle</h3>
+<p>Action • disaster-thriller aesthetic</p>
+<p>⭐⭐⭐⭐⭐ 4.8/5</p>
+<span class="badge-show">3D</span>
+<br><br>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="movie-card">
+<a href="6Aladdin.html"><img src="images/6.Aladdin/movie6.png" alt=""></a>
+<div class="movie-info">
+<h3 class="movie-title">Aladdin</h3>
+<p>Action • Thriller</p>
+<p>⭐⭐⭐⭐⭐ 4.7/5</p>
+<span class="badge-show">IMAX 3D</span>
+<br><br>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+</body>
+</html>
